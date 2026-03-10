@@ -28,7 +28,7 @@ const AboutSection = () => {
               <h3 className="text-sm font-semibold text-primary mb-1">{a.frontend}</h3>
               <p className="text-sm text-muted-foreground">{a.frontendDesc}</p>
             </motion.div>
-            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6">
+            <motion.div variants={slideRight} className="glass-card p-5 md:p-6">
               <h3 className="text-sm font-semibold text-primary mb-1">{a.backend}</h3>
               <p className="text-sm text-muted-foreground">{a.backendDesc}</p>
             </motion.div>
