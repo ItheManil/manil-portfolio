@@ -55,7 +55,11 @@ export const translations = {
       ],
     },
     projects: {
-      title: 'Featured Projects',
+      title: 'Projects',
+      academicTitle: 'Academic Projects',
+      professionalTitle: 'Professional Projects',
+      viewSite: 'View Site',
+      viewCode: 'Source Code',
       items: [
         {
           category: 'Academic Project',
@@ -70,6 +74,17 @@ export const translations = {
           name: 'Computer Store Inventory',
           desc: 'Complete inventory management system for computer hardware store with CRUD operations and real-time stock tracking.',
           tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
+        },
+      ],
+      professional: [
+        {
+          category: 'Freelance Project',
+          year: '2025',
+          name: 'Atmosphere DZ',
+          desc: 'Professional website for a diving equipment and hyperbaric services company. Features animated UI, responsive design, and optimized performance.',
+          tech: ['React.js', 'TypeScript', 'Tailwind CSS'],
+          siteUrl: 'https://atmosphere-dz.com/',
+          githubUrl: 'https://github.com/ItheManil/Atmosphere-Website',
         },
       ],
     },
