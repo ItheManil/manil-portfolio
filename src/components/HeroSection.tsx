@@ -1,6 +1,33 @@
+import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { ArrowDown, MessageCircle } from 'lucide-react';
+
+const useTypingEffect = (text: string, speed = 80, startDelay = 400) => {
+  const [displayed, setDisplayed] = useState('');
+  const [done, setDone] = useState(false);
+  const prevText = useRef(text);
+
+  useEffect(() => {
+    if (text !== prevText.current) {
+      prevText.current = text;
+      setDisplayed('');
+      setDone(false);
+    }
+
+    const timeout = setTimeout(() => {
+      if (displayed.length < text.length) {
+        setDisplayed(text.slice(0, displayed.length + 1));
+      } else {
+        setDone(true);
+      }
+    }, displayed.length === 0 ? startDelay : speed);
+
+    return () => clearTimeout(timeout);
+  }, [text, displayed, speed, startDelay]);
+
+  return { displayed, done };
+};
 
 const HeroSection = () => {
   const { t } = useLanguage();
