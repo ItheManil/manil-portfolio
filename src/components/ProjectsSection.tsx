@@ -48,21 +48,21 @@ const ProjectsSection = () => {
   const p = t.projects;
 
   return (
-    <section id="projects" className="py-24 relative z-10">
+    <section id="projects" className="py-16 md:py-24 relative z-10">
       <div className="container mx-auto px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.1 }}>
-          <motion.h2 variants={fadeUp} className="section-heading text-center mb-12">{p.title}</motion.h2>
+          <motion.h2 variants={fadeUp} className="section-heading text-center mb-8 md:mb-12">{p.title}</motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
             {p.items.map((proj, i) => (
-              <motion.div key={i} variants={fadeUp} className="glass-card-hover p-6 flex flex-col">
-                <div className="flex items-center gap-2 mb-4">
+              <motion.div key={i} variants={fadeUp} className="glass-card-hover p-5 md:p-6 flex flex-col">
+                <div className="flex items-center gap-2 mb-3">
                   <span className="category-pill">{proj.category}</span>
                   <span className="text-xs text-muted-foreground">{proj.year}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{proj.name}</h3>
-                <p className="text-sm text-muted-foreground mb-5 flex-1">{proj.desc}</p>
-                <div className="flex flex-wrap gap-3">
+                <h3 className="text-base md:text-lg font-semibold text-foreground mb-1.5">{proj.name}</h3>
+                <p className="text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{proj.desc}</p>
+                <div className="flex flex-wrap gap-2.5 md:gap-3">
                   {proj.tech.map((tech, idx) => (
                     <TechLogo key={tech} name={tech} index={idx} />
                   ))}
