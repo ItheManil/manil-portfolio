@@ -62,7 +62,7 @@ const HeroSection = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ delay: 0.15, duration: 0.35 }}
             className="text-lg md:text-2xl font-medium text-muted-foreground mb-4 md:mb-6 min-h-[1.75em]"
           >
             {typedTitle}
