@@ -4,6 +4,7 @@ import { useTheme } from '@/hooks/useTheme';
 import { Lang } from '@/lib/i18n';
 import { Globe, Menu, X } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
+import profilePhoto from '@/assets/profile-photo.jpeg';
 
 const sections = ['home', 'about', 'skills', 'education', 'projects', 'experience', 'contact'] as const;
 const langs: { code: Lang; label: string }[] = [
@@ -48,8 +49,9 @@ const Navbar = () => {
   return (
     <nav className={`navbar-glass transition-all duration-300 ${scrolled ? 'py-3' : 'py-4'}`}>
       <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
-        <button onClick={() => scrollTo('home')} className="font-display text-lg font-bold tracking-tight text-foreground">
-          BM<span className="text-primary">.</span>
+        <button onClick={() => scrollTo('home')} className="flex items-center gap-2">
+          <img src={profilePhoto} alt="Belkessam Manil" className="w-8 h-8 rounded-full object-cover border-2 border-primary/30" />
+          <span className="font-display text-lg font-bold tracking-tight text-foreground">BM<span className="text-primary">.</span></span>
         </button>
 
         {/* Desktop nav */}
