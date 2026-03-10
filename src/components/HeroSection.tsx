@@ -53,7 +53,7 @@ const HeroSection = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.1, duration: 0.35 }}
             className="text-4xl md:text-7xl font-bold font-display tracking-tight mb-3"
           >
             <span className="gradient-text">{t.hero.name}</span>
