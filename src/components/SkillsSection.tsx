@@ -1,24 +1,10 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { Code2, Database, Layers } from 'lucide-react';
-import nodejsLogo from '@/assets/nodejs-logo.svg';
-import mysqlLogo from '@/assets/mysql-logo.svg';
+import { techIconMap } from '@/lib/techIcons';
 
-const skills = [
-  { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', color: '190 90% 50%' },
-  { name: 'Node.js', icon: nodejsLogo, color: '120 40% 45%' },
-  { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', color: '0 0% 70%', invert: true },
-  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', color: '50 90% 50%' },
-  { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', color: '15 80% 55%' },
-  { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', color: '210 80% 55%' },
-  { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', color: '190 80% 50%' },
-  { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', color: '240 30% 55%' },
-  { name: 'MySQL', icon: mysqlLogo, color: '200 60% 45%' },
-  { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg', color: '210 50% 50%' },
-  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg', color: '210 70% 50%' },
-  { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', color: '10 80% 50%' },
-  { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', color: '0 0% 70%', invert: true },
-];
+const skillNames = ['React.js', 'Node.js', 'Express.js', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'PHP', 'MySQL', 'PostgreSQL', 'TypeScript', 'Git', 'GitHub'];
+const skills = skillNames.map((name) => ({ name, ...techIconMap[name] }));
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
