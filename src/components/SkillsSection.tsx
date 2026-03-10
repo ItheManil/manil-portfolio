@@ -83,13 +83,13 @@ const SkillsSection = () => {
     { icon: Layers, title: s.categories.fullstack, desc: s.categories.fullstackDesc },
   ];
 
-  const particles = Array.from({ length: 30 }, (_, i) => ({
+  const particles = Array.from({ length: 10 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
     size: 2 + Math.random() * 3,
-    duration: 15 + Math.random() * 20,
-    delay: Math.random() * -20,
+    duration: 20 + Math.random() * 15,
+    delay: Math.random() * -15,
     color: i % 3 === 0 ? 'var(--primary)' : i % 3 === 1 ? 'var(--accent)' : 'var(--aurora-3)',
   }));
 
