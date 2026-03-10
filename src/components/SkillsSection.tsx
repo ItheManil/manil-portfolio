@@ -3,43 +3,88 @@ import { motion } from 'framer-motion';
 import { Code2, Database, Layers } from 'lucide-react';
 
 const skills = [
-  { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-  { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', invert: true },
-  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-  { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-  { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-  { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
-  { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-  { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-  { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-  { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', invert: true },
+  { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', color: '190 90% 50%' },
+  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', color: '120 40% 45%' },
+  { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', color: '0 0% 70%', invert: true },
+  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', color: '50 90% 50%' },
+  { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', color: '15 80% 55%' },
+  { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', color: '210 80% 55%' },
+  { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', color: '190 80% 50%' },
+  { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', color: '240 30% 55%' },
+  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', color: '200 60% 45%' },
+  { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg', color: '210 50% 50%' },
+  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg', color: '210 70% 50%' },
+  { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', color: '10 80% 50%' },
+  { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', color: '0 0% 70%', invert: true },
 ];
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
-const SkillCard = ({ name, icon, invert, delay }: { name: string; icon: string; invert?: boolean; delay: number }) => (
-  <motion.div
-    variants={fadeUp}
-    whileHover={{ scale: 1.08, y: -4 }}
-    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-    className="glass-card flex flex-col items-center justify-center gap-3 p-5 cursor-default"
-  >
-    <motion.img
-      src={icon}
-      alt={name}
-      className="w-10 h-10 object-contain"
-      style={invert ? { filter: 'invert(1)' } : undefined}
-      initial={{ scale: 0, rotate: -30 }}
-      whileInView={{ scale: 1, rotate: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: delay * 0.05, type: 'spring', stiffness: 200 }}
-    />
-    <span className="text-xs font-medium text-muted-foreground">{name}</span>
-  </motion.div>
-);
+const SkillCard = ({ name, icon, color, invert, index }: { name: string; icon: string; color: string; invert?: boolean; index: number }) => {
+  return (
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ y: -6, scale: 1.04 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+      className="group relative rounded-2xl p-6 flex flex-col items-center gap-4 cursor-default overflow-hidden"
+      style={{
+        background: `linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--secondary)) 100%)`,
+        border: `1px solid hsl(var(--border))`,
+      }}
+    >
+      {/* Animated dot */}
+      <motion.div
+        className="absolute w-1.5 h-1.5 rounded-full"
+        style={{ background: `hsl(${color})` }}
+        animate={{
+          x: [0, 12, -8, 5, 0],
+          y: [0, -10, 6, -4, 0],
+          opacity: [0.6, 1, 0.4, 0.8, 0.6],
+        }}
+        transition={{
+          duration: 6 + index * 0.5,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        initial={{ left: `${20 + (index * 17) % 60}%`, top: `${30 + (index * 13) % 40}%` }}
+      />
+
+      {/* Icon container with colored background */}
+      <motion.div
+        className="relative w-14 h-14 rounded-xl flex items-center justify-center"
+        style={{
+          background: `hsl(${color} / 0.12)`,
+          border: `1px solid hsl(${color} / 0.2)`,
+        }}
+        whileHover={{
+          boxShadow: `0 0 20px hsl(${color} / 0.3)`,
+        }}
+      >
+        <motion.img
+          src={icon}
+          alt={name}
+          className="w-8 h-8 object-contain"
+          style={invert ? { filter: 'invert(1) brightness(1.2)' } : undefined}
+          initial={{ scale: 0, rotate: -20 }}
+          whileInView={{ scale: 1, rotate: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.04, type: 'spring', stiffness: 200 }}
+        />
+      </motion.div>
+
+      {/* Label */}
+      <span className="text-sm font-medium text-foreground">{name}</span>
+
+      {/* Hover glow */}
+      <div
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle at 50% 40%, hsl(${color} / 0.08) 0%, transparent 70%)`,
+        }}
+      />
+    </motion.div>
+  );
+};
 
 const SkillsSection = () => {
   const { t } = useLanguage();
@@ -59,9 +104,9 @@ const SkillsSection = () => {
           <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-14">{s.subtitle}</motion.p>
 
           {/* Skill logo grid */}
-          <motion.div variants={fadeUp} className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4 max-w-4xl mx-auto mb-14">
+          <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 max-w-4xl mx-auto mb-14">
             {skills.map((skill, i) => (
-              <SkillCard key={skill.name} name={skill.name} icon={skill.icon} invert={skill.invert} delay={i} />
+              <SkillCard key={skill.name} name={skill.name} icon={skill.icon} color={skill.color} invert={skill.invert} index={i} />
             ))}
           </motion.div>
 
