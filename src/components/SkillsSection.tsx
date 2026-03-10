@@ -1,10 +1,11 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { Code2, Database, Layers } from 'lucide-react';
+import nodejsLogo from '@/assets/nodejs-logo.png';
 
 const skills = [
   { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', color: '190 90% 50%' },
-  { name: 'Node.js', icon: new URL('@/assets/nodejs-logo.png', import.meta.url).href, color: '120 40% 45%' },
+  { name: 'Node.js', icon: nodejsLogo, color: '120 40% 45%' },
   { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', color: '0 0% 70%', invert: true },
   { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', color: '50 90% 50%' },
   { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', color: '15 80% 55%' },
