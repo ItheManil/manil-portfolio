@@ -80,11 +80,11 @@ const Navbar = () => {
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}
-                className={`flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded transition-colors ${
-                  lang === l.code ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
+                className={`flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded transition-all duration-200 ${
+                  lang === l.code ? 'bg-primary text-primary-foreground scale-105' : 'text-muted-foreground hover:text-foreground hover:scale-110'
                 }`}
               >
-                <img src={l.flag} alt={l.label} className="w-4 h-3 object-cover rounded-[2px]" />
+                <img src={l.flag} alt={l.label} className={`w-4 h-3 object-cover rounded-[2px] transition-all duration-200 ${lang === l.code ? 'ring-1 ring-primary-foreground/50' : 'opacity-70 group-hover:opacity-100'}`} />
                 {l.label}
               </button>
             ))}
