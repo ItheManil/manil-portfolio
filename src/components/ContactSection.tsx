@@ -51,13 +51,13 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative z-10">
+    <section id="contact" className="py-16 md:py-24 relative z-10">
       <div className="container mx-auto px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.1 }}>
-          <motion.h2 variants={fadeUp} className="section-heading text-center mb-3">{c.title}</motion.h2>
-          <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-12">{c.subtitle}</motion.p>
+          <motion.h2 variants={fadeUp} className="section-heading text-center mb-2">{c.title}</motion.h2>
+          <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-8 md:mb-12">{c.subtitle}</motion.p>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {/* Contact info */}
             <motion.div variants={fadeUp} className="space-y-6">
               <a href="mailto:manil.belkessam1@gmail.com" className="glass-card-hover p-5 flex items-center gap-4 block">
