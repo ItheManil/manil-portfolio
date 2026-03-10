@@ -14,7 +14,7 @@ const ExperienceSection = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.1 }}>
           <motion.h2 variants={fadeUp} className="section-heading text-center mb-8 md:mb-12">{ex.title}</motion.h2>
 
-          <div className="max-w-3xl mx-auto space-y-8">
+          <div className="max-w-3xl mx-auto space-y-6 md:space-y-8">
             {/* Experience card */}
             <motion.div variants={fadeUp} className="relative ps-8">
               <div className="timeline-line start-0" />
