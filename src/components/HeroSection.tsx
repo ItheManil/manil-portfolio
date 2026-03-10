@@ -1,9 +1,38 @@
+import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { ArrowDown, MessageCircle } from 'lucide-react';
 
+const useTypingEffect = (text: string, speed = 80, startDelay = 400) => {
+  const [displayed, setDisplayed] = useState('');
+  const [done, setDone] = useState(false);
+  const prevText = useRef(text);
+
+  useEffect(() => {
+    if (text !== prevText.current) {
+      prevText.current = text;
+      setDisplayed('');
+      setDone(false);
+    }
+
+    const timeout = setTimeout(() => {
+      if (displayed.length < text.length) {
+        setDisplayed(text.slice(0, displayed.length + 1));
+      } else {
+        setDone(true);
+      }
+    }, displayed.length === 0 ? startDelay : speed);
+
+    return () => clearTimeout(timeout);
+  }, [text, displayed, speed, startDelay]);
+
+  return { displayed, done };
+};
+
 const HeroSection = () => {
   const { t } = useLanguage();
+
+  const { displayed: typedTitle, done: typingDone } = useTypingEffect(t.hero.title, 60, 600);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
@@ -34,9 +63,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-xl md:text-2xl font-medium text-muted-foreground mb-6"
+            className="text-xl md:text-2xl font-medium text-muted-foreground mb-6 min-h-[1.75em]"
           >
-            {t.hero.title}
+            {typedTitle}
+            {!typingDone && (
+              <span className="inline-block w-[2px] h-[1em] bg-primary ml-0.5 align-middle animate-pulse" />
+            )}
           </motion.h2>
 
           <motion.p
