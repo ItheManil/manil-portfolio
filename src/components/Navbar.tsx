@@ -4,6 +4,7 @@ import { useTheme } from '@/hooks/useTheme';
 import { Lang } from '@/lib/i18n';
 import { Globe, Menu, X } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
+import profilePhoto from '@/assets/profile-photo.jpeg';
 
 const sections = ['home', 'about', 'skills', 'education', 'projects', 'experience', 'contact'] as const;
 const langs: { code: Lang; label: string }[] = [
