@@ -1,7 +1,48 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
+import { techIconMap } from '@/lib/techIcons';
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
+
+const TechLogo = ({ name, index }: { name: string; index: number }) => {
+  const tech = techIconMap[name];
+  if (!tech) return <span className="tech-pill">{name}</span>;
+
+  const { icon, color, invert } = tech;
+
+  return (
+    <motion.div
+      className="group relative flex flex-col items-center gap-1.5"
+      whileHover={{ y: -4, scale: 1.1 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 18 }}
+    >
+      <motion.div
+        className="w-10 h-10 rounded-lg flex items-center justify-center"
+        style={{
+          background: `hsl(${color} / 0.12)`,
+          border: `1px solid hsl(${color} / 0.2)`,
+        }}
+        whileHover={{
+          boxShadow: `0 0 16px hsl(${color} / 0.3)`,
+        }}
+      >
+        <motion.img
+          src={icon}
+          alt={name}
+          className="w-5 h-5 object-contain"
+          style={invert ? { filter: 'invert(1) brightness(1.2)' } : undefined}
+          initial={{ scale: 0, rotate: -15 }}
+          whileInView={{ scale: 1, rotate: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: index * 0.06, type: 'spring', stiffness: 220 }}
+        />
+      </motion.div>
+      <span className="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+        {name}
+      </span>
+    </motion.div>
+  );
+};
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
@@ -22,9 +63,9 @@ const ProjectsSection = () => {
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">{proj.name}</h3>
                 <p className="text-sm text-muted-foreground mb-5 flex-1">{proj.desc}</p>
-                <div className="flex flex-wrap gap-2">
-                  {proj.tech.map((tech) => (
-                    <span key={tech} className="tech-pill">{tech}</span>
+                <div className="flex flex-wrap gap-3">
+                  {proj.tech.map((tech, idx) => (
+                    <TechLogo key={tech} name={tech} index={idx} />
                   ))}
                 </div>
               </motion.div>
