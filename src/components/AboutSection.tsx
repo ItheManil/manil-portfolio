@@ -9,16 +9,16 @@ const AboutSection = () => {
   const a = t.about;
 
   return (
-    <section id="about" className="py-24 relative z-10">
+    <section id="about" className="py-16 md:py-24 relative z-10">
       <div className="container mx-auto px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.1 }}>
-          <motion.h2 variants={fadeUp} className="section-heading text-center mb-4">{a.title}</motion.h2>
-          <motion.div variants={fadeUp} className="max-w-3xl mx-auto space-y-4 mb-12">
+          <motion.h2 variants={fadeUp} className="section-heading text-center mb-3">{a.title}</motion.h2>
+          <motion.div variants={fadeUp} className="max-w-3xl mx-auto space-y-3 mb-8 md:mb-12">
             <p className="section-subheading mx-auto text-center">{a.p1}</p>
             <p className="section-subheading mx-auto text-center">{a.p2}</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
             {/* Expertise cards */}
             <motion.div variants={fadeUp} className="glass-card p-6">
               <h3 className="text-sm font-semibold text-primary mb-1">{a.frontend}</h3>
