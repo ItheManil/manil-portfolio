@@ -34,7 +34,7 @@ const AboutSection = () => {
             </motion.div>
 
             {/* Quick facts */}
-            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6 space-y-3 md:space-y-4">
+            <motion.div variants={scaleIn} className="glass-card p-5 md:p-6 space-y-3 md:space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                 <div>
