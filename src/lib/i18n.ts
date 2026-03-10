@@ -213,7 +213,7 @@ export const translations = {
     nav: { home: 'الرئيسية', about: 'حولي', skills: 'المهارات', education: 'التعليم', projects: 'المشاريع', experience: 'الخبرة', contact: 'اتصل بي' },
     hero: {
       greeting: 'مرحباً، أنا',
-      name: 'بلقاسم منيل',
+      name: 'بلقسام منيل',
       title: 'مطور Full Stack وتقني قواعد البيانات',
       bio: 'مطور full-stack مستقل مع خبرة في قواعد البيانات، أبحث عن منصب دائم للمساهمة في مشاريع مبتكرة في بيئة تعاونية.',
       cta1: 'عرض أعمالي',
