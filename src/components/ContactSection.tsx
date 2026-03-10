@@ -1,7 +1,16 @@
 import { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Download, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Download, ExternalLink, Loader2, CheckCircle2 } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, 'Name is required').max(100),
+  email: z.string().trim().email('Invalid email').max(255),
+  message: z.string().trim().min(1, 'Message is required').max(2000),
+});
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -9,6 +18,37 @@ const ContactSection = () => {
   const { t } = useLanguage();
   const c = t.contact;
   const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const parsed = contactSchema.safeParse(form);
+    if (!parsed.success) {
+      toast.error(parsed.error.errors[0]?.message || 'Invalid input');
+      return;
+    }
+
+    setSending(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: parsed.data,
+      });
+
+      if (error) throw error;
+
+      setSent(true);
+      setForm({ name: '', email: '', message: '' });
+      toast.success(c.successMessage || 'Message sent successfully!');
+      setTimeout(() => setSent(false), 4000);
+    } catch (err) {
+      console.error('Contact form error:', err);
+      toast.error(c.errorMessage || 'Failed to send message. Please try again.');
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-24 relative z-10">
@@ -73,13 +113,15 @@ const ContactSection = () => {
             <motion.div variants={fadeUp}>
               <div className="glass-card p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-6">{c.sendMessage}</h3>
-                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div>
                     <label className="text-xs font-medium text-muted-foreground mb-1.5 block">{c.name}</label>
                     <input
                       type="text"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      required
+                      maxLength={100}
                       className="w-full px-4 py-2.5 rounded-xl bg-secondary/50 border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-colors"
                     />
                   </div>
@@ -89,6 +131,8 @@ const ContactSection = () => {
                       type="email"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      required
+                      maxLength={255}
                       className="w-full px-4 py-2.5 rounded-xl bg-secondary/50 border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-colors"
                     />
                   </div>
@@ -98,12 +142,32 @@ const ContactSection = () => {
                       rows={4}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      required
+                      maxLength={2000}
                       className="w-full px-4 py-2.5 rounded-xl bg-secondary/50 border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-colors resize-none"
                     />
                   </div>
-                  <button type="submit" className="btn-primary w-full">
-                    <Send className="w-4 h-4" />
-                    {c.send}
+                  <button
+                    type="submit"
+                    disabled={sending || sent}
+                    className="btn-primary w-full disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {sending ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : sent ? (
+                      <>
+                        <CheckCircle2 className="w-4 h-4" />
+                        Sent!
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        {c.send}
+                      </>
+                    )}
                   </button>
                 </form>
               </div>
