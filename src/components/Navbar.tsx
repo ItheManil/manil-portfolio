@@ -76,15 +76,15 @@ const Navbar = () => {
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           {/* Language switcher */}
           <div className="flex items-center gap-1 rounded-lg border border-border p-1">
-            <Globe className="w-3.5 h-3.5 text-muted-foreground" />
             {langs.map((l) => (
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}
-                className={`px-2 py-0.5 text-xs font-medium rounded transition-colors ${
+                className={`flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded transition-colors ${
                   lang === l.code ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
+                <img src={l.flag} alt={l.label} className="w-4 h-3 object-cover rounded-[2px]" />
                 {l.label}
               </button>
             ))}
