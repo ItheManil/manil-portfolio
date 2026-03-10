@@ -40,11 +40,11 @@ const ContactSection = () => {
 
       setSent(true);
       setForm({ name: '', email: '', message: '' });
-      toast.success(c.successMessage || 'Message sent successfully!');
+      toast.success('Message sent successfully!');
       setTimeout(() => setSent(false), 4000);
     } catch (err) {
       console.error('Contact form error:', err);
-      toast.error(c.errorMessage || 'Failed to send message. Please try again.');
+      toast.error('Failed to send message. Please try again.');
     } finally {
       setSending(false);
     }
