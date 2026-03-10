@@ -6,7 +6,7 @@ import { techIconMap } from '@/lib/techIcons';
 const skillNames = ['React.js', 'Node.js', 'Express.js', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'PHP', 'MySQL', 'PostgreSQL', 'TypeScript', 'Git', 'GitHub'];
 const skills = skillNames.map((name) => ({ name, ...techIconMap[name] }));
 
-const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
+const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
 
 const SkillCard = ({ name, icon, color, invert, index }: { name: string; icon: string; color: string; invert?: boolean; index: number }) => {
   return (
