@@ -20,17 +20,17 @@ const AboutSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
             {/* Expertise cards */}
-            <motion.div variants={fadeUp} className="glass-card p-6">
+            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6">
               <h3 className="text-sm font-semibold text-primary mb-1">{a.frontend}</h3>
               <p className="text-sm text-muted-foreground">{a.frontendDesc}</p>
             </motion.div>
-            <motion.div variants={fadeUp} className="glass-card p-6">
+            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6">
               <h3 className="text-sm font-semibold text-primary mb-1">{a.backend}</h3>
               <p className="text-sm text-muted-foreground">{a.backendDesc}</p>
             </motion.div>
 
             {/* Quick facts */}
-            <motion.div variants={fadeUp} className="glass-card p-6 space-y-4">
+            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6 space-y-3 md:space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                 <div>
