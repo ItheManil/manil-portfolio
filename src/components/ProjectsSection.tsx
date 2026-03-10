@@ -22,8 +22,21 @@ const TechLogo = ({ name, index }: { name: string; index: number }) => {
           background: `hsl(${color} / 0.12)`,
           border: `1px solid hsl(${color} / 0.2)`,
         }}
+        animate={{
+          boxShadow: [
+            `0 0 0px hsl(${color} / 0)`,
+            `0 0 12px hsl(${color} / 0.35)`,
+            `0 0 0px hsl(${color} / 0)`,
+          ],
+        }}
+        transition={{
+          duration: 2.5,
+          repeat: Infinity,
+          delay: index * 0.3,
+          ease: 'easeInOut',
+        }}
         whileHover={{
-          boxShadow: `0 0 16px hsl(${color} / 0.3)`,
+          boxShadow: `0 0 20px hsl(${color} / 0.45)`,
         }}
       >
         <motion.img
