@@ -19,7 +19,7 @@ const ExperienceSection = () => {
 
           <div className="max-w-3xl mx-auto space-y-6 md:space-y-8">
             {/* Experience card */}
-            <motion.div variants={fadeUp} className="relative ps-8">
+            <motion.div variants={slideRight} className="relative ps-8">
               <div className="timeline-line start-0" />
               <div className="timeline-dot absolute start-0 top-1 -translate-x-1/2" />
 
