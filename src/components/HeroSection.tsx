@@ -63,9 +63,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-xl md:text-2xl font-medium text-muted-foreground mb-6"
+            className="text-xl md:text-2xl font-medium text-muted-foreground mb-6 min-h-[1.75em]"
           >
-            {t.hero.title}
+            {typedTitle}
+            {!typingDone && (
+              <span className="inline-block w-[2px] h-[1em] bg-primary ml-0.5 align-middle animate-pulse" />
+            )}
           </motion.h2>
 
           <motion.p
