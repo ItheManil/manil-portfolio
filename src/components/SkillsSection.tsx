@@ -96,9 +96,47 @@ const SkillsSection = () => {
     { icon: Layers, title: s.categories.fullstack, desc: s.categories.fullstackDesc },
   ];
 
+  const particles = Array.from({ length: 30 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: 2 + Math.random() * 3,
+    duration: 15 + Math.random() * 20,
+    delay: Math.random() * -20,
+    color: i % 3 === 0 ? 'var(--primary)' : i % 3 === 1 ? 'var(--accent)' : 'var(--aurora-3)',
+  }));
+
   return (
-    <section id="skills" className="py-24 relative z-10">
-      <div className="container mx-auto px-4 md:px-8">
+    <section id="skills" className="py-24 relative z-10 overflow-hidden">
+      {/* Particle field */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        {particles.map((p) => (
+          <motion.div
+            key={p.id}
+            className="absolute rounded-full"
+            style={{
+              width: p.size,
+              height: p.size,
+              left: `${p.x}%`,
+              top: `${p.y}%`,
+              background: `hsl(${p.color})`,
+              opacity: 0,
+            }}
+            animate={{
+              y: [0, -40, 10, -20, 0],
+              x: [0, 15, -10, 5, 0],
+              opacity: [0, 0.4, 0.15, 0.35, 0],
+            }}
+            transition={{
+              duration: p.duration,
+              repeat: Infinity,
+              delay: p.delay,
+              ease: 'easeInOut',
+            }}
+          />
+        ))}
+      </div>
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.06 }}>
           <motion.h2 variants={fadeUp} className="section-heading text-center mb-3">{s.title}</motion.h2>
           <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-14">{s.subtitle}</motion.p>
