@@ -2,6 +2,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { Code2, Database, Layers } from 'lucide-react';
 import nodejsLogo from '@/assets/nodejs-logo.svg';
+import mysqlLogo from '@/assets/mysql-logo.svg';
 
 const skills = [
   { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', color: '190 90% 50%' },
