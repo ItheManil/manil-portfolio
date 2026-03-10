@@ -9,10 +9,10 @@ const EducationSection = () => {
   const e = t.education;
 
   return (
-    <section id="education" className="py-24 relative z-10">
+    <section id="education" className="py-16 md:py-24 relative z-10">
       <div className="container mx-auto px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.1 }}>
-          <motion.h2 variants={fadeUp} className="section-heading text-center mb-12">{e.title}</motion.h2>
+          <motion.h2 variants={fadeUp} className="section-heading text-center mb-8 md:mb-12">{e.title}</motion.h2>
 
           <motion.div variants={fadeUp} className="max-w-2xl mx-auto">
             <div className="relative ps-8">
