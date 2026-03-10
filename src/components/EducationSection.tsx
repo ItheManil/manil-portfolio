@@ -2,7 +2,9 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 
-const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
+const easeOut: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } } };
+const slideLeft = { hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: easeOut } } };
 
 const EducationSection = () => {
   const { t } = useLanguage();
