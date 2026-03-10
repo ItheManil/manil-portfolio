@@ -198,7 +198,7 @@ export const translations = {
       professional: [
         {
           category: 'Projet Freelance',
-          year: '2025',
+          year: '2026',
           name: 'Atmosphere DZ',
           desc: 'Site web professionnel pour une entreprise de services hyperbares et d\'équipements de plongée. Interface animée, design responsive et performances optimisées.',
           tech: ['React.js', 'TypeScript', 'Tailwind CSS'],
