@@ -12,7 +12,10 @@ const contactSchema = z.object({
   message: z.string().trim().min(1, 'Message is required').max(2000),
 });
 
-const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
+const easeOut: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } } };
+const slideLeft = { hidden: { opacity: 0, x: -40 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: easeOut } } };
+const slideRight = { hidden: { opacity: 0, x: 40 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: easeOut } } };
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -59,7 +62,7 @@ const ContactSection = () => {
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {/* Contact info */}
-            <motion.div variants={fadeUp} className="space-y-4 md:space-y-6">
+            <motion.div variants={slideLeft} className="space-y-4 md:space-y-6">
               <a href="mailto:manil.belkessam1@gmail.com" className="glass-card-hover p-5 flex items-center gap-4 block">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <Mail className="w-4 h-4 text-primary" />
@@ -109,7 +112,7 @@ const ContactSection = () => {
             </motion.div>
 
             {/* Contact form */}
-            <motion.div variants={fadeUp}>
+            <motion.div variants={slideRight}>
               <div className="glass-card p-5 md:p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4 md:mb-6">{c.sendMessage}</h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>

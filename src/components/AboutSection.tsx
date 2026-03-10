@@ -2,7 +2,11 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { MapPin, Briefcase, Languages } from 'lucide-react';
 
-const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
+const easeOut: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } } };
+const slideLeft = { hidden: { opacity: 0, x: -40 }, visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: easeOut } } };
+const slideRight = { hidden: { opacity: 0, x: 40 }, visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: easeOut } } };
+const scaleIn = { hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: easeOut } } };
 
 const AboutSection = () => {
   const { t } = useLanguage();
@@ -20,17 +24,17 @@ const AboutSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
             {/* Expertise cards */}
-            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6">
+            <motion.div variants={slideLeft} className="glass-card p-5 md:p-6">
               <h3 className="text-sm font-semibold text-primary mb-1">{a.frontend}</h3>
               <p className="text-sm text-muted-foreground">{a.frontendDesc}</p>
             </motion.div>
-            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6">
+            <motion.div variants={slideRight} className="glass-card p-5 md:p-6">
               <h3 className="text-sm font-semibold text-primary mb-1">{a.backend}</h3>
               <p className="text-sm text-muted-foreground">{a.backendDesc}</p>
             </motion.div>
 
             {/* Quick facts */}
-            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6 space-y-3 md:space-y-4">
+            <motion.div variants={scaleIn} className="glass-card p-5 md:p-6 space-y-3 md:space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                 <div>
@@ -48,7 +52,7 @@ const AboutSection = () => {
             </motion.div>
 
             {/* Languages */}
-            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6 md:col-span-2 lg:col-span-3">
+            <motion.div variants={scaleIn} className="glass-card p-5 md:p-6 md:col-span-2 lg:col-span-3">
               <div className="flex items-center gap-2 mb-3 md:mb-4">
                 <Languages className="w-4 h-4 text-primary" />
                 <h3 className="text-sm font-semibold text-foreground">{a.languages}</h3>

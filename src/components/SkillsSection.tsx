@@ -6,12 +6,14 @@ import { techIconMap } from '@/lib/techIcons';
 const skillNames = ['React.js', 'Node.js', 'Express.js', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'PHP', 'MySQL', 'PostgreSQL', 'TypeScript', 'Git', 'GitHub'];
 const skills = skillNames.map((name) => ({ name, ...techIconMap[name] }));
 
-const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
+const easeOut: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } } };
+const scaleIn = { hidden: { opacity: 0, scale: 0.85 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: easeOut } } };
 
 const SkillCard = ({ name, icon, color, invert, index }: { name: string; icon: string; color: string; invert?: boolean; index: number }) => {
   return (
     <motion.div
-      variants={fadeUp}
+      variants={scaleIn}
       whileHover={{ y: -6, scale: 1.04 }}
       transition={{ type: 'spring', stiffness: 260, damping: 18 }}
       className="group relative rounded-2xl p-4 md:p-6 flex flex-col items-center gap-3 md:gap-4 cursor-default overflow-hidden"

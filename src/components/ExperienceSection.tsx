@@ -2,7 +2,10 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { Briefcase, Target, Users } from 'lucide-react';
 
-const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
+const easeOut: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } } };
+const slideRight = { hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: easeOut } } };
+const scaleIn = { hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: easeOut } } };
 
 const ExperienceSection = () => {
   const { t } = useLanguage();
@@ -16,7 +19,7 @@ const ExperienceSection = () => {
 
           <div className="max-w-3xl mx-auto space-y-6 md:space-y-8">
             {/* Experience card */}
-            <motion.div variants={fadeUp} className="relative ps-8">
+            <motion.div variants={slideRight} className="relative ps-8">
               <div className="timeline-line start-0" />
               <div className="timeline-dot absolute start-0 top-1 -translate-x-1/2" />
 
@@ -43,7 +46,7 @@ const ExperienceSection = () => {
             </motion.div>
 
             {/* Goals */}
-            <motion.div variants={fadeUp}>
+            <motion.div variants={scaleIn}>
               <h3 className="text-lg font-semibold text-foreground mb-3 md:mb-4 text-center">{ex.goalsTitle}</h3>
               <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
                 {ex.goals.map((g, i) => (

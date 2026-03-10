@@ -2,7 +2,10 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { techIconMap } from '@/lib/techIcons';
 
-const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
+const easeOut: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } } };
+const slideLeft = { hidden: { opacity: 0, x: -40 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: easeOut } } };
+const slideRight = { hidden: { opacity: 0, x: 40 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: easeOut } } };
 
 const TechLogo = ({ name, index }: { name: string; index: number }) => {
   const tech = techIconMap[name];
@@ -68,7 +71,7 @@ const ProjectsSection = () => {
 
           <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
             {p.items.map((proj, i) => (
-              <motion.div key={i} variants={fadeUp} className="glass-card-hover p-5 md:p-6 flex flex-col">
+              <motion.div key={i} variants={i % 2 === 0 ? slideLeft : slideRight} className="glass-card-hover p-5 md:p-6 flex flex-col">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="category-pill">{proj.category}</span>
                   <span className="text-xs text-muted-foreground">{proj.year}</span>
