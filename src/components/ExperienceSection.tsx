@@ -44,10 +44,10 @@ const ExperienceSection = () => {
 
             {/* Goals */}
             <motion.div variants={fadeUp}>
-              <h3 className="text-lg font-semibold text-foreground mb-4 text-center">{ex.goalsTitle}</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <h3 className="text-lg font-semibold text-foreground mb-3 md:mb-4 text-center">{ex.goalsTitle}</h3>
+              <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
                 {ex.goals.map((g, i) => (
-                  <div key={i} className="glass-card-hover p-5 text-center">
+                  <div key={i} className="glass-card-hover p-4 md:p-5 text-center">
                     <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
                       {i === 0 ? <Users className="w-4 h-4 text-primary" /> : <Target className="w-4 h-4 text-primary" />}
                     </div>

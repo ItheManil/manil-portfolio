@@ -14,7 +14,7 @@ const SkillCard = ({ name, icon, color, invert, index }: { name: string; icon: s
       variants={fadeUp}
       whileHover={{ y: -6, scale: 1.04 }}
       transition={{ type: 'spring', stiffness: 260, damping: 18 }}
-      className="group relative rounded-2xl p-6 flex flex-col items-center gap-4 cursor-default overflow-hidden"
+      className="group relative rounded-2xl p-4 md:p-6 flex flex-col items-center gap-3 md:gap-4 cursor-default overflow-hidden"
       style={{
         background: `linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--secondary)) 100%)`,
         border: `1px solid hsl(var(--border))`,

@@ -48,12 +48,12 @@ const AboutSection = () => {
             </motion.div>
 
             {/* Languages */}
-            <motion.div variants={fadeUp} className="glass-card p-6 md:col-span-2 lg:col-span-3">
-              <div className="flex items-center gap-2 mb-4">
+            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6 md:col-span-2 lg:col-span-3">
+              <div className="flex items-center gap-2 mb-3 md:mb-4">
                 <Languages className="w-4 h-4 text-primary" />
                 <h3 className="text-sm font-semibold text-foreground">{a.languages}</h3>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                 {a.langList.map((l) => (
                   <div key={l.lang} className="text-center">
                     <p className="text-sm font-medium text-foreground">{l.lang}</p>

@@ -111,8 +111,8 @@ const ContactSection = () => {
 
             {/* Contact form */}
             <motion.div variants={fadeUp}>
-              <div className="glass-card p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-6">{c.sendMessage}</h3>
+              <div className="glass-card p-5 md:p-6">
+                <h3 className="text-lg font-semibold text-foreground mb-4 md:mb-6">{c.sendMessage}</h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   {/* Honeypot field - hidden from real users */}
                   <input
