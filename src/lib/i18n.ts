@@ -317,7 +317,7 @@ export const translations = {
       professional: [
         {
           category: 'مشروع مستقل',
-          year: '2025',
+          year: '2026',
           name: 'Atmosphere DZ',
           desc: 'موقع ويب احترافي لشركة خدمات الغوص والمعدات الضغطية. واجهة متحركة، تصميم متجاوب وأداء محسّن.',
           tech: ['React.js', 'TypeScript', 'Tailwind CSS'],
