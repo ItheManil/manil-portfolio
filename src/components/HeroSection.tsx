@@ -32,7 +32,7 @@ const useTypingEffect = (text: string, speed = 80, startDelay = 400) => {
 const HeroSection = () => {
   const { t } = useLanguage();
 
-  const { displayed: typedTitle, done: typingDone } = useTypingEffect(t.hero.title, 60, 600);
+  const { displayed: typedTitle, done: typingDone } = useTypingEffect(t.hero.title, 40, 300);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
@@ -44,7 +44,7 @@ const HeroSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
+            transition={{ delay: 0.05, duration: 0.35 }}
             className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-3"
           >
             {t.hero.greeting}
@@ -53,7 +53,7 @@ const HeroSection = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.1, duration: 0.35 }}
             className="text-4xl md:text-7xl font-bold font-display tracking-tight mb-3"
           >
             <span className="gradient-text">{t.hero.name}</span>
@@ -62,7 +62,7 @@ const HeroSection = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ delay: 0.15, duration: 0.35 }}
             className="text-lg md:text-2xl font-medium text-muted-foreground mb-4 md:mb-6 min-h-[1.75em]"
           >
             {typedTitle}
@@ -74,7 +74,7 @@ const HeroSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            transition={{ delay: 0.2, duration: 0.35 }}
             className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto mb-8 md:mb-10 leading-relaxed"
           >
             {t.hero.bio}
@@ -83,7 +83,7 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
+            transition={{ delay: 0.25, duration: 0.35 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} className="btn-primary">

@@ -2,7 +2,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { techIconMap } from '@/lib/techIcons';
 
-const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
+const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
 
 const TechLogo = ({ name, index }: { name: string; index: number }) => {
   const tech = techIconMap[name];
@@ -30,10 +30,10 @@ const TechLogo = ({ name, index }: { name: string; index: number }) => {
           src={icon}
           alt={name}
           className={`w-5 h-5 object-contain ${invert ? 'dark:[filter:invert(1)_brightness(1.2)]' : ''}`}
-          initial={{ scale: 0, rotate: -15 }}
-          whileInView={{ scale: 1, rotate: 0 }}
+      initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: index * 0.06, type: 'spring', stiffness: 220 }}
+          transition={{ duration: 0.2, delay: index * 0.03 }}
         />
       </motion.div>
       <span className="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors">

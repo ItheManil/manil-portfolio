@@ -12,7 +12,7 @@ const contactSchema = z.object({
   message: z.string().trim().min(1, 'Message is required').max(2000),
 });
 
-const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
+const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
 
 const ContactSection = () => {
   const { t } = useLanguage();

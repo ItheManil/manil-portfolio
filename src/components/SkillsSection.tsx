@@ -6,7 +6,7 @@ import { techIconMap } from '@/lib/techIcons';
 const skillNames = ['React.js', 'Node.js', 'Express.js', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'PHP', 'MySQL', 'PostgreSQL', 'TypeScript', 'Git', 'GitHub'];
 const skills = skillNames.map((name) => ({ name, ...techIconMap[name] }));
 
-const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
+const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
 
 const SkillCard = ({ name, icon, color, invert, index }: { name: string; icon: string; color: string; invert?: boolean; index: number }) => {
   return (
@@ -52,10 +52,10 @@ const SkillCard = ({ name, icon, color, invert, index }: { name: string; icon: s
           src={icon}
           alt={name}
           className={`w-8 h-8 object-contain ${invert ? 'dark:invert dark:[filter:invert(1)_brightness(1.2)]' : ''}`}
-          initial={{ scale: 0, rotate: -20 }}
-          whileInView={{ scale: 1, rotate: 0 }}
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: index * 0.04, type: 'spring', stiffness: 200 }}
+          transition={{ duration: 0.25, delay: index * 0.02 }}
         />
       </motion.div>
 
@@ -83,13 +83,13 @@ const SkillsSection = () => {
     { icon: Layers, title: s.categories.fullstack, desc: s.categories.fullstackDesc },
   ];
 
-  const particles = Array.from({ length: 30 }, (_, i) => ({
+  const particles = Array.from({ length: 10 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
     size: 2 + Math.random() * 3,
-    duration: 15 + Math.random() * 20,
-    delay: Math.random() * -20,
+    duration: 20 + Math.random() * 15,
+    delay: Math.random() * -15,
     color: i % 3 === 0 ? 'var(--primary)' : i % 3 === 1 ? 'var(--accent)' : 'var(--aurora-3)',
   }));
 
@@ -129,11 +129,11 @@ const SkillsSection = () => {
           <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-8 md:mb-14">{s.subtitle}</motion.p>
 
           {/* Skill logo grid */}
-          <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 max-w-4xl mx-auto mb-8 md:mb-14">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 max-w-4xl mx-auto mb-8 md:mb-14">
             {skills.map((skill, i) => (
               <SkillCard key={skill.name} name={skill.name} icon={skill.icon} color={skill.color} invert={skill.invert} index={i} />
             ))}
-          </motion.div>
+          </div>
 
           {/* Category cards */}
           <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
