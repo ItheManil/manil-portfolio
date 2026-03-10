@@ -79,7 +79,7 @@ export const translations = {
       professional: [
         {
           category: 'Freelance Project',
-          year: '2025',
+          year: '2026',
           name: 'Atmosphere DZ',
           desc: 'Professional website for a diving equipment and hyperbaric services company. Features animated UI, responsive design, and optimized performance.',
           tech: ['React.js', 'TypeScript', 'Tailwind CSS'],
