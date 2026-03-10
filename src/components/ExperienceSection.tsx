@@ -9,10 +9,10 @@ const ExperienceSection = () => {
   const ex = t.experience;
 
   return (
-    <section id="experience" className="py-24 relative z-10">
+    <section id="experience" className="py-16 md:py-24 relative z-10">
       <div className="container mx-auto px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.1 }}>
-          <motion.h2 variants={fadeUp} className="section-heading text-center mb-12">{ex.title}</motion.h2>
+          <motion.h2 variants={fadeUp} className="section-heading text-center mb-8 md:mb-12">{ex.title}</motion.h2>
 
           <div className="max-w-3xl mx-auto space-y-8">
             {/* Experience card */}
