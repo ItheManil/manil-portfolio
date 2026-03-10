@@ -2,15 +2,18 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useTheme } from '@/hooks/useTheme';
 import { Lang } from '@/lib/i18n';
-import { Globe, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
 import profilePhoto from '@/assets/profile-photo.jpeg';
+import flagUK from '@/assets/flag-uk.png';
+import flagFrance from '@/assets/flag-france.png';
+import flagAlgeria from '@/assets/flag-algeria.png';
 
 const sections = ['home', 'about', 'skills', 'education', 'projects', 'experience', 'contact'] as const;
-const langs: { code: Lang; label: string }[] = [
-  { code: 'en', label: 'EN' },
-  { code: 'fr', label: 'FR' },
-  { code: 'ar', label: 'AR' },
+const langs: { code: Lang; label: string; flag: string }[] = [
+  { code: 'en', label: 'EN', flag: flagUK },
+  { code: 'fr', label: 'FR', flag: flagFrance },
+  { code: 'ar', label: 'AR', flag: flagAlgeria },
 ];
 
 const Navbar = () => {
