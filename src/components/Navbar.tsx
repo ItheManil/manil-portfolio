@@ -13,6 +13,7 @@ const langs: { code: Lang; label: string }[] = [
 ];
 
 const Navbar = () => {
+  const { theme, toggleTheme } = useTheme();
   const { t, lang, setLang } = useLanguage();
   const [active, setActive] = useState('home');
   const [mobileOpen, setMobileOpen] = useState(false);
