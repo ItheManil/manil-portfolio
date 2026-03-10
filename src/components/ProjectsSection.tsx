@@ -12,7 +12,7 @@ const TechLogo = ({ name, index }: { name: string; index: number }) => {
 
   return (
     <motion.div
-      className="group relative flex flex-col items-center gap-1.5"
+      className="group relative flex flex-col items-center gap-1.5 w-16"
       whileHover={{ y: -4, scale: 1.1 }}
       transition={{ type: 'spring', stiffness: 300, damping: 18 }}
     >
