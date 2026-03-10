@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -125,9 +125,11 @@
     font-family: 'Space Grotesk', 'Inter', sans-serif;
   }
 
-  /* RTL support */
-  [dir="rtl"] {
-    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+  /* RTL support — force connected Arabic glyphs */
+  [dir="rtl"],
+  [dir="rtl"] * {
+    font-family: 'Noto Sans Arabic', 'Inter', 'Segoe UI', Tahoma, sans-serif !important;
+    letter-spacing: 0 !important;
   }
 
   /* Scrollbar styling */
