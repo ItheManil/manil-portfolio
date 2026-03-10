@@ -44,8 +44,21 @@ const SkillCard = ({ name, icon, color, invert, index }: { name: string; icon: s
           background: `hsl(${color} / 0.12)`,
           border: `1px solid hsl(${color} / 0.2)`,
         }}
+        animate={{
+          boxShadow: [
+            `0 0 0px hsl(${color} / 0)`,
+            `0 0 14px hsl(${color} / 0.35)`,
+            `0 0 0px hsl(${color} / 0)`,
+          ],
+        }}
+        transition={{
+          duration: 2.5,
+          repeat: Infinity,
+          delay: index * 0.3,
+          ease: 'easeInOut',
+        }}
         whileHover={{
-          boxShadow: `0 0 20px hsl(${color} / 0.3)`,
+          boxShadow: `0 0 24px hsl(${color} / 0.45)`,
         }}
       >
         <motion.img
