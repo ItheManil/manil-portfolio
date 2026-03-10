@@ -32,6 +32,8 @@ const useTypingEffect = (text: string, speed = 80, startDelay = 400) => {
 const HeroSection = () => {
   const { t } = useLanguage();
 
+  const { displayed: typedTitle, done: typingDone } = useTypingEffect(t.hero.title, 60, 600);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       {/* Spotlight */}
