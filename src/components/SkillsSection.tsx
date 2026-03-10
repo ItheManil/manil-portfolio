@@ -14,7 +14,7 @@ const SkillCard = ({ name, icon, color, invert, index }: { name: string; icon: s
       variants={fadeUp}
       whileHover={{ y: -6, scale: 1.04 }}
       transition={{ type: 'spring', stiffness: 260, damping: 18 }}
-      className="group relative rounded-2xl p-6 flex flex-col items-center gap-4 cursor-default overflow-hidden"
+      className="group relative rounded-2xl p-4 md:p-6 flex flex-col items-center gap-3 md:gap-4 cursor-default overflow-hidden"
       style={{
         background: `linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--secondary)) 100%)`,
         border: `1px solid hsl(var(--border))`,
@@ -94,7 +94,7 @@ const SkillsSection = () => {
   }));
 
   return (
-    <section id="skills" className="py-24 relative z-10 overflow-hidden">
+    <section id="skills" className="py-16 md:py-24 relative z-10 overflow-hidden">
       {/* Particle field */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {particles.map((p) => (
@@ -125,23 +125,23 @@ const SkillsSection = () => {
       </div>
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.06 }}>
-          <motion.h2 variants={fadeUp} className="section-heading text-center mb-3">{s.title}</motion.h2>
-          <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-14">{s.subtitle}</motion.p>
+          <motion.h2 variants={fadeUp} className="section-heading text-center mb-2">{s.title}</motion.h2>
+          <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-8 md:mb-14">{s.subtitle}</motion.p>
 
           {/* Skill logo grid */}
-          <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 max-w-4xl mx-auto mb-14">
+          <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 max-w-4xl mx-auto mb-8 md:mb-14">
             {skills.map((skill, i) => (
               <SkillCard key={skill.name} name={skill.name} icon={skill.icon} color={skill.color} invert={skill.invert} index={i} />
             ))}
           </motion.div>
 
           {/* Category cards */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
             {categories.map((cat) => (
               <motion.div
                 key={cat.title}
                 variants={fadeUp}
-                className="glass-card-hover p-6 text-center"
+                className="glass-card-hover p-5 md:p-6 text-center"
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >

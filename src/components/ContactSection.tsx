@@ -51,15 +51,15 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative z-10">
+    <section id="contact" className="py-16 md:py-24 relative z-10">
       <div className="container mx-auto px-4 md:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.1 }}>
-          <motion.h2 variants={fadeUp} className="section-heading text-center mb-3">{c.title}</motion.h2>
-          <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-12">{c.subtitle}</motion.p>
+          <motion.h2 variants={fadeUp} className="section-heading text-center mb-2">{c.title}</motion.h2>
+          <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-8 md:mb-12">{c.subtitle}</motion.p>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {/* Contact info */}
-            <motion.div variants={fadeUp} className="space-y-6">
+            <motion.div variants={fadeUp} className="space-y-4 md:space-y-6">
               <a href="mailto:manil.belkessam1@gmail.com" className="glass-card-hover p-5 flex items-center gap-4 block">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <Mail className="w-4 h-4 text-primary" />
@@ -111,8 +111,8 @@ const ContactSection = () => {
 
             {/* Contact form */}
             <motion.div variants={fadeUp}>
-              <div className="glass-card p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-6">{c.sendMessage}</h3>
+              <div className="glass-card p-5 md:p-6">
+                <h3 className="text-lg font-semibold text-foreground mb-4 md:mb-6">{c.sendMessage}</h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   {/* Honeypot field - hidden from real users */}
                   <input

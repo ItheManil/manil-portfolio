@@ -45,7 +45,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4"
+            className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-3"
           >
             {t.hero.greeting}
           </motion.p>
@@ -54,7 +54,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-5xl md:text-7xl font-bold font-display tracking-tight mb-4"
+            className="text-4xl md:text-7xl font-bold font-display tracking-tight mb-3"
           >
             <span className="gradient-text">{t.hero.name}</span>
           </motion.h1>
@@ -63,7 +63,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-xl md:text-2xl font-medium text-muted-foreground mb-6 min-h-[1.75em]"
+            className="text-lg md:text-2xl font-medium text-muted-foreground mb-4 md:mb-6 min-h-[1.75em]"
           >
             {typedTitle}
             {!typingDone && (
@@ -75,7 +75,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-base text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed"
+            className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto mb-8 md:mb-10 leading-relaxed"
           >
             {t.hero.bio}
           </motion.p>
