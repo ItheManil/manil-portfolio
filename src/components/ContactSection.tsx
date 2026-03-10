@@ -62,7 +62,7 @@ const ContactSection = () => {
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {/* Contact info */}
-            <motion.div variants={fadeUp} className="space-y-4 md:space-y-6">
+            <motion.div variants={slideLeft} className="space-y-4 md:space-y-6">
               <a href="mailto:manil.belkessam1@gmail.com" className="glass-card-hover p-5 flex items-center gap-4 block">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <Mail className="w-4 h-4 text-primary" />
