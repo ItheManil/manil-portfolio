@@ -125,11 +125,11 @@ const SkillsSection = () => {
       </div>
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.06 }}>
-          <motion.h2 variants={fadeUp} className="section-heading text-center mb-3">{s.title}</motion.h2>
-          <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-14">{s.subtitle}</motion.p>
+          <motion.h2 variants={fadeUp} className="section-heading text-center mb-2">{s.title}</motion.h2>
+          <motion.p variants={fadeUp} className="section-subheading text-center mx-auto mb-8 md:mb-14">{s.subtitle}</motion.p>
 
           {/* Skill logo grid */}
-          <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 max-w-4xl mx-auto mb-14">
+          <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 max-w-4xl mx-auto mb-8 md:mb-14">
             {skills.map((skill, i) => (
               <SkillCard key={skill.name} name={skill.name} icon={skill.icon} color={skill.color} invert={skill.invert} index={i} />
             ))}
