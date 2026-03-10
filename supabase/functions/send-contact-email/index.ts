@@ -126,6 +126,11 @@ Deno.serve(async (req) => {
       });
     }
 
+    // Record this submission for rate limiting
+    await supabaseAdmin
+      .from("contact_rate_limit")
+      .insert({ ip_address: ip });
+
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
