@@ -51,8 +51,7 @@ const SkillCard = ({ name, icon, color, invert, index }: { name: string; icon: s
         <motion.img
           src={icon}
           alt={name}
-          className="w-8 h-8 object-contain"
-          style={invert ? { filter: 'invert(1) brightness(1.2)' } : undefined}
+          className={`w-8 h-8 object-contain ${invert ? 'dark:invert dark:brightness-125' : ''}`}
           initial={{ scale: 0, rotate: -20 }}
           whileInView={{ scale: 1, rotate: 0 }}
           viewport={{ once: true }}
