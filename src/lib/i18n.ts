@@ -293,7 +293,11 @@ export const translations = {
       ],
     },
     projects: {
-      title: 'المشاريع المميزة',
+      title: 'المشاريع',
+      academicTitle: 'المشاريع الأكاديمية',
+      professionalTitle: 'المشاريع المهنية',
+      viewSite: 'زيارة الموقع',
+      viewCode: 'الكود المصدري',
       items: [
         {
           category: 'مشروع أكاديمي',
@@ -308,6 +312,17 @@ export const translations = {
           name: 'مخزون متجر الحاسوب',
           desc: 'نظام كامل لإدارة المخزون لمتجر أجهزة الكمبيوتر مع عمليات CRUD وتتبع المخزون في الوقت الفعلي.',
           tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
+        },
+      ],
+      professional: [
+        {
+          category: 'مشروع مستقل',
+          year: '2025',
+          name: 'Atmosphere DZ',
+          desc: 'موقع ويب احترافي لشركة خدمات الغوص والمعدات الضغطية. واجهة متحركة، تصميم متجاوب وأداء محسّن.',
+          tech: ['React.js', 'TypeScript', 'Tailwind CSS'],
+          siteUrl: 'https://atmosphere-dz.com/',
+          githubUrl: 'https://github.com/ItheManil/Atmosphere-Website',
         },
       ],
     },
