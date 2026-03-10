@@ -112,7 +112,7 @@ const ContactSection = () => {
             </motion.div>
 
             {/* Contact form */}
-            <motion.div variants={fadeUp}>
+            <motion.div variants={slideRight}>
               <div className="glass-card p-5 md:p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4 md:mb-6">{c.sendMessage}</h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>

@@ -71,7 +71,7 @@ const ProjectsSection = () => {
 
           <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
             {p.items.map((proj, i) => (
-              <motion.div key={i} variants={fadeUp} className="glass-card-hover p-5 md:p-6 flex flex-col">
+              <motion.div key={i} variants={i % 2 === 0 ? slideLeft : slideRight} className="glass-card-hover p-5 md:p-6 flex flex-col">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="category-pill">{proj.category}</span>
                   <span className="text-xs text-muted-foreground">{proj.year}</span>

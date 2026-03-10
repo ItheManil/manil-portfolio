@@ -13,7 +13,7 @@ const scaleIn = { hidden: { opacity: 0, scale: 0.85 }, visible: { opacity: 1, sc
 const SkillCard = ({ name, icon, color, invert, index }: { name: string; icon: string; color: string; invert?: boolean; index: number }) => {
   return (
     <motion.div
-      variants={fadeUp}
+      variants={scaleIn}
       whileHover={{ y: -6, scale: 1.04 }}
       transition={{ type: 'spring', stiffness: 260, damping: 18 }}
       className="group relative rounded-2xl p-4 md:p-6 flex flex-col items-center gap-3 md:gap-4 cursor-default overflow-hidden"

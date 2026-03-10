@@ -46,7 +46,7 @@ const ExperienceSection = () => {
             </motion.div>
 
             {/* Goals */}
-            <motion.div variants={fadeUp}>
+            <motion.div variants={scaleIn}>
               <h3 className="text-lg font-semibold text-foreground mb-3 md:mb-4 text-center">{ex.goalsTitle}</h3>
               <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
                 {ex.goals.map((g, i) => (

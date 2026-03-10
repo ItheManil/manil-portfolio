@@ -52,7 +52,7 @@ const AboutSection = () => {
             </motion.div>
 
             {/* Languages */}
-            <motion.div variants={fadeUp} className="glass-card p-5 md:p-6 md:col-span-2 lg:col-span-3">
+            <motion.div variants={scaleIn} className="glass-card p-5 md:p-6 md:col-span-2 lg:col-span-3">
               <div className="flex items-center gap-2 mb-3 md:mb-4">
                 <Languages className="w-4 h-4 text-primary" />
                 <h3 className="text-sm font-semibold text-foreground">{a.languages}</h3>

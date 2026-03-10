@@ -16,7 +16,7 @@ const EducationSection = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.1 }}>
           <motion.h2 variants={fadeUp} className="section-heading text-center mb-8 md:mb-12">{e.title}</motion.h2>
 
-          <motion.div variants={fadeUp} className="max-w-2xl mx-auto">
+          <motion.div variants={slideLeft} className="max-w-2xl mx-auto">
             <div className="relative ps-8">
               <div className="timeline-line start-0" />
               <div className="timeline-dot absolute start-0 top-1 -translate-x-1/2" />
