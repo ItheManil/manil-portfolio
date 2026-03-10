@@ -94,7 +94,7 @@ const SkillsSection = () => {
   }));
 
   return (
-    <section id="skills" className="py-24 relative z-10 overflow-hidden">
+    <section id="skills" className="py-16 md:py-24 relative z-10 overflow-hidden">
       {/* Particle field */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {particles.map((p) => (
