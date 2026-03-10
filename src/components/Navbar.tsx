@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useTheme } from '@/hooks/useTheme';
 import { Lang } from '@/lib/i18n';
 import { Globe, Menu, X } from 'lucide-react';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const sections = ['home', 'about', 'skills', 'education', 'projects', 'experience', 'contact'] as const;
 const langs: { code: Lang; label: string }[] = [
@@ -11,6 +13,7 @@ const langs: { code: Lang; label: string }[] = [
 ];
 
 const Navbar = () => {
+  const { theme, toggleTheme } = useTheme();
   const { t, lang, setLang } = useLanguage();
   const [active, setActive] = useState('home');
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -65,6 +68,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Theme toggle */}
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           {/* Language switcher */}
           <div className="flex items-center gap-1 rounded-lg border border-border p-1">
             <Globe className="w-3.5 h-3.5 text-muted-foreground" />
