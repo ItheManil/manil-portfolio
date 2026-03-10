@@ -19,12 +19,14 @@ const Index = () => {
         <Navbar />
         <main>
           <HeroSection />
-          <AboutSection />
-          <SkillsSection />
-          <EducationSection />
-          <ProjectsSection />
-          <ExperienceSection />
-          <ContactSection />
+          <Suspense fallback={null}>
+            <AboutSection />
+            <SkillsSection />
+            <EducationSection />
+            <ProjectsSection />
+            <ExperienceSection />
+            <ContactSection />
+          </Suspense>
         </main>
         <footer className="relative z-10 border-t border-border py-8 text-center">
           <p className="text-xs text-muted-foreground">
