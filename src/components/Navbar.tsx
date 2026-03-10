@@ -68,6 +68,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Theme toggle */}
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           {/* Language switcher */}
           <div className="flex items-center gap-1 rounded-lg border border-border p-1">
             <Globe className="w-3.5 h-3.5 text-muted-foreground" />
