@@ -114,6 +114,17 @@ const ContactSection = () => {
               <div className="glass-card p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-6">{c.sendMessage}</h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>
+                  {/* Honeypot field - hidden from real users */}
+                  <input
+                    type="text"
+                    name="honeypot"
+                    value={form.honeypot}
+                    onChange={(e) => setForm({ ...form, honeypot: e.target.value })}
+                    autoComplete="off"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, width: 0 }}
+                  />
                   <div>
                     <label className="text-xs font-medium text-muted-foreground mb-1.5 block">{c.name}</label>
                     <input
