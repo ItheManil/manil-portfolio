@@ -20,8 +20,8 @@ const ExperienceSection = () => {
               <div className="timeline-line start-0" />
               <div className="timeline-dot absolute start-0 top-1 -translate-x-1/2" />
 
-              <div className="glass-card p-6">
-                <div className="flex items-start justify-between flex-wrap gap-2 mb-4">
+              <div className="glass-card p-5 md:p-6">
+                <div className="flex items-start justify-between flex-wrap gap-2 mb-3">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <Briefcase className="w-4 h-4 text-primary" />
