@@ -17,7 +17,7 @@ const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 const ContactSection = () => {
   const { t } = useLanguage();
   const c = t.contact;
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '', honeypot: '' });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -39,7 +39,7 @@ const ContactSection = () => {
       if (error) throw error;
 
       setSent(true);
-      setForm({ name: '', email: '', message: '' });
+      setForm({ name: '', email: '', message: '', honeypot: '' });
       toast.success('Message sent successfully!');
       setTimeout(() => setSent(false), 4000);
     } catch (err) {
@@ -114,6 +114,17 @@ const ContactSection = () => {
               <div className="glass-card p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-6">{c.sendMessage}</h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>
+                  {/* Honeypot field - hidden from real users */}
+                  <input
+                    type="text"
+                    name="honeypot"
+                    value={form.honeypot}
+                    onChange={(e) => setForm({ ...form, honeypot: e.target.value })}
+                    autoComplete="off"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, width: 0 }}
+                  />
                   <div>
                     <label className="text-xs font-medium text-muted-foreground mb-1.5 block">{c.name}</label>
                     <input
