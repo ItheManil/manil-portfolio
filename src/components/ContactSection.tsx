@@ -17,7 +17,7 @@ const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 const ContactSection = () => {
   const { t } = useLanguage();
   const c = t.contact;
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '', honeypot: '' });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 

@@ -12,7 +12,14 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, message, honeypot } = await req.json();
+
+    // Honeypot check - bots fill hidden fields
+    if (honeypot) {
+      return new Response(JSON.stringify({ success: true }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     // Validate inputs
     if (!name || typeof name !== "string" || name.trim().length === 0 || name.length > 100) {
@@ -34,6 +41,16 @@ Deno.serve(async (req) => {
       });
     }
 
+    // HTML escape to prevent injection
+    function escapeHtml(s: string): string {
+      return s
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     if (!RESEND_API_KEY) {
       console.error("RESEND_API_KEY not set");
@@ -42,6 +59,10 @@ Deno.serve(async (req) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+
+    const safeName = escapeHtml(name.trim());
+    const safeEmail = escapeHtml(email.trim());
+    const safeMessage = escapeHtml(message.trim());
 
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -52,16 +73,16 @@ Deno.serve(async (req) => {
       body: JSON.stringify({
         from: "Portfolio Contact <onboarding@resend.dev>",
         to: ["manil.belkessam1@gmail.com"],
-        subject: `Portfolio Contact: ${name.trim()}`,
+        subject: `Portfolio Contact: ${safeName}`,
         reply_to: email.trim(),
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #3b82f6;">New Portfolio Message</h2>
-            <p><strong>Name:</strong> ${name.trim()}</p>
-            <p><strong>Email:</strong> ${email.trim()}</p>
+            <p><strong>Name:</strong> ${safeName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
             <hr style="border: 1px solid #e5e7eb; margin: 16px 0;" />
             <p><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap;">${message.trim()}</p>
+            <pre style="white-space: pre-wrap; font-family: sans-serif;">${safeMessage}</pre>
           </div>
         `,
       }),
