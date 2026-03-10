@@ -174,7 +174,11 @@ export const translations = {
       ],
     },
     projects: {
-      title: 'Projets en Vedette',
+      title: 'Projets',
+      academicTitle: 'Projets Académiques',
+      professionalTitle: 'Projets Professionnels',
+      viewSite: 'Voir le Site',
+      viewCode: 'Code Source',
       items: [
         {
           category: 'Projet Académique',
@@ -189,6 +193,17 @@ export const translations = {
           name: 'Inventaire Magasin Informatique',
           desc: 'Système complet de gestion d\'inventaire pour magasin de matériel informatique avec opérations CRUD et suivi de stock en temps réel.',
           tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
+        },
+      ],
+      professional: [
+        {
+          category: 'Projet Freelance',
+          year: '2025',
+          name: 'Atmosphere DZ',
+          desc: 'Site web professionnel pour une entreprise de services hyperbares et d\'équipements de plongée. Interface animée, design responsive et performances optimisées.',
+          tech: ['React.js', 'TypeScript', 'Tailwind CSS'],
+          siteUrl: 'https://atmosphere-dz.com/',
+          githubUrl: 'https://github.com/ItheManil/Atmosphere-Website',
         },
       ],
     },
