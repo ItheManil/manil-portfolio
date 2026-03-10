@@ -39,7 +39,7 @@ const ContactSection = () => {
       if (error) throw error;
 
       setSent(true);
-      setForm({ name: '', email: '', message: '' });
+      setForm({ name: '', email: '', message: '', honeypot: '' });
       toast.success('Message sent successfully!');
       setTimeout(() => setSent(false), 4000);
     } catch (err) {
