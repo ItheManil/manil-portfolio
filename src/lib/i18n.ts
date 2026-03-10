@@ -55,7 +55,11 @@ export const translations = {
       ],
     },
     projects: {
-      title: 'Featured Projects',
+      title: 'Projects',
+      academicTitle: 'Academic Projects',
+      professionalTitle: 'Professional Projects',
+      viewSite: 'View Site',
+      viewCode: 'Source Code',
       items: [
         {
           category: 'Academic Project',
@@ -70,6 +74,17 @@ export const translations = {
           name: 'Computer Store Inventory',
           desc: 'Complete inventory management system for computer hardware store with CRUD operations and real-time stock tracking.',
           tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
+        },
+      ],
+      professional: [
+        {
+          category: 'Freelance Project',
+          year: '2025',
+          name: 'Atmosphere DZ',
+          desc: 'Professional website for a diving equipment and hyperbaric services company. Features animated UI, responsive design, and optimized performance.',
+          tech: ['React.js', 'TypeScript', 'Tailwind CSS'],
+          siteUrl: 'https://atmosphere-dz.com/',
+          githubUrl: 'https://github.com/ItheManil/Atmosphere-Website',
         },
       ],
     },
@@ -159,7 +174,11 @@ export const translations = {
       ],
     },
     projects: {
-      title: 'Projets en Vedette',
+      title: 'Projets',
+      academicTitle: 'Projets Académiques',
+      professionalTitle: 'Projets Professionnels',
+      viewSite: 'Voir le Site',
+      viewCode: 'Code Source',
       items: [
         {
           category: 'Projet Académique',
@@ -174,6 +193,17 @@ export const translations = {
           name: 'Inventaire Magasin Informatique',
           desc: 'Système complet de gestion d\'inventaire pour magasin de matériel informatique avec opérations CRUD et suivi de stock en temps réel.',
           tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
+        },
+      ],
+      professional: [
+        {
+          category: 'Projet Freelance',
+          year: '2025',
+          name: 'Atmosphere DZ',
+          desc: 'Site web professionnel pour une entreprise de services hyperbares et d\'équipements de plongée. Interface animée, design responsive et performances optimisées.',
+          tech: ['React.js', 'TypeScript', 'Tailwind CSS'],
+          siteUrl: 'https://atmosphere-dz.com/',
+          githubUrl: 'https://github.com/ItheManil/Atmosphere-Website',
         },
       ],
     },
@@ -263,7 +293,11 @@ export const translations = {
       ],
     },
     projects: {
-      title: 'المشاريع المميزة',
+      title: 'المشاريع',
+      academicTitle: 'المشاريع الأكاديمية',
+      professionalTitle: 'المشاريع المهنية',
+      viewSite: 'زيارة الموقع',
+      viewCode: 'الكود المصدري',
       items: [
         {
           category: 'مشروع أكاديمي',
@@ -278,6 +312,17 @@ export const translations = {
           name: 'مخزون متجر الحاسوب',
           desc: 'نظام كامل لإدارة المخزون لمتجر أجهزة الكمبيوتر مع عمليات CRUD وتتبع المخزون في الوقت الفعلي.',
           tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
+        },
+      ],
+      professional: [
+        {
+          category: 'مشروع مستقل',
+          year: '2025',
+          name: 'Atmosphere DZ',
+          desc: 'موقع ويب احترافي لشركة خدمات الغوص والمعدات الضغطية. واجهة متحركة، تصميم متجاوب وأداء محسّن.',
+          tech: ['React.js', 'TypeScript', 'Tailwind CSS'],
+          siteUrl: 'https://atmosphere-dz.com/',
+          githubUrl: 'https://github.com/ItheManil/Atmosphere-Website',
         },
       ],
     },

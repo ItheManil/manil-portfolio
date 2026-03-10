@@ -1,6 +1,7 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { techIconMap } from '@/lib/techIcons';
+import { ExternalLink, Github } from 'lucide-react';
 
 const easeOut: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } } };
@@ -46,7 +47,7 @@ const TechLogo = ({ name, index }: { name: string; index: number }) => {
           src={icon}
           alt={name}
           className={`w-5 h-5 object-contain ${invert ? 'dark:[filter:invert(1)_brightness(1.2)]' : ''}`}
-      initial={{ scale: 0.8, opacity: 0 }}
+          initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.2, delay: index * 0.03 }}
@@ -69,19 +70,65 @@ const ProjectsSection = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.1 }}>
           <motion.h2 variants={fadeUp} className="section-heading text-center mb-8 md:mb-12">{p.title}</motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+          {/* Academic Projects */}
+          <motion.h3 variants={fadeUp} className="text-lg md:text-xl font-semibold text-foreground text-center mb-6">
+            {p.academicTitle}
+          </motion.h3>
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mb-12">
             {p.items.map((proj, i) => (
               <motion.div key={i} variants={i % 2 === 0 ? slideLeft : slideRight} className="glass-card-hover p-5 md:p-6 flex flex-col">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="category-pill">{proj.category}</span>
                   <span className="text-xs text-muted-foreground">{proj.year}</span>
                 </div>
-                <h3 className="text-base md:text-lg font-semibold text-foreground mb-1.5">{proj.name}</h3>
+                <h4 className="text-base md:text-lg font-semibold text-foreground mb-1.5">{proj.name}</h4>
                 <p className="text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{proj.desc}</p>
                 <div className="flex flex-wrap gap-2.5 md:gap-3">
                   {proj.tech.map((tech, idx) => (
                     <TechLogo key={tech} name={tech} index={idx} />
                   ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Professional Projects */}
+          <motion.h3 variants={fadeUp} className="text-lg md:text-xl font-semibold text-foreground text-center mb-6">
+            {p.professionalTitle}
+          </motion.h3>
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+            {p.professional.map((proj, i) => (
+              <motion.div key={i} variants={i % 2 === 0 ? slideLeft : slideRight} className="glass-card-hover p-5 md:p-6 flex flex-col">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="category-pill">{proj.category}</span>
+                  <span className="text-xs text-muted-foreground">{proj.year}</span>
+                </div>
+                <h4 className="text-base md:text-lg font-semibold text-foreground mb-1.5">{proj.name}</h4>
+                <p className="text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{proj.desc}</p>
+                <div className="flex flex-wrap gap-2.5 md:gap-3 mb-4">
+                  {proj.tech.map((tech, idx) => (
+                    <TechLogo key={tech} name={tech} index={idx} />
+                  ))}
+                </div>
+                <div className="flex gap-3 mt-auto">
+                  <a
+                    href={proj.siteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    {p.viewSite}
+                  </a>
+                  <a
+                    href={proj.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border bg-background text-foreground text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    {p.viewCode}
+                  </a>
                 </div>
               </motion.div>
             ))}
