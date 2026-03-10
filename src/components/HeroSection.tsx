@@ -74,7 +74,7 @@ const HeroSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            transition={{ delay: 0.2, duration: 0.35 }}
             className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto mb-8 md:mb-10 leading-relaxed"
           >
             {t.hero.bio}
