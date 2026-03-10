@@ -49,9 +49,8 @@ const Navbar = () => {
   return (
     <nav className={`navbar-glass transition-all duration-300 ${scrolled ? 'py-3' : 'py-4'}`}>
       <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
-        <button onClick={() => scrollTo('home')} className="flex items-center gap-2">
+        <button onClick={() => scrollTo('home')} className="flex items-center">
           <img src={profilePhoto} alt="Belkessam Manil" className="w-8 h-8 rounded-full object-cover border-2 border-primary/30" />
-          <span className="font-display text-lg font-bold tracking-tight text-foreground">BM<span className="text-primary">.</span></span>
         </button>
 
         {/* Desktop nav */}
