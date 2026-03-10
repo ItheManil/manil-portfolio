@@ -29,7 +29,7 @@ const TechLogo = ({ name, index }: { name: string; index: number }) => {
         <motion.img
           src={icon}
           alt={name}
-          className={`w-5 h-5 object-contain ${invert ? 'dark:invert dark:brightness-125' : ''}`}
+          className={`w-5 h-5 object-contain ${invert ? 'dark:[filter:invert(1)_brightness(1.2)]' : ''}`}
           initial={{ scale: 0, rotate: -15 }}
           whileInView={{ scale: 1, rotate: 0 }}
           viewport={{ once: true }}
