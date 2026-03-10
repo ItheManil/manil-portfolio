@@ -136,12 +136,12 @@ const SkillsSection = () => {
           </motion.div>
 
           {/* Category cards */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
             {categories.map((cat) => (
               <motion.div
                 key={cat.title}
                 variants={fadeUp}
-                className="glass-card-hover p-6 text-center"
+                className="glass-card-hover p-5 md:p-6 text-center"
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
