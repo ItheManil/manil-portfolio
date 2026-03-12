@@ -18,6 +18,7 @@ const Index = () => {
     <LanguageProvider>
       <div className="relative min-h-screen">
         <AuroraBackground />
+        <FloatingWhatsApp />
         <Navbar />
         <LanguageTransition>
           <main>
