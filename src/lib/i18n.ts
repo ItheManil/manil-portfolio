@@ -158,6 +158,14 @@ export const translations = {
         { lang: 'Espagnol', level: 'Intermédiaire' },
       ],
     },
+    stats: {
+      title: 'En Chiffres',
+      subtitle: 'Un aperçu rapide de mes réalisations professionnelles et de mon expérience',
+      projects: 'Projets Complétés',
+      clients: 'Clients Satisfaits',
+      experience: 'Années d\'Expérience',
+      technologies: 'Technologies Maîtrisées',
+    },
     skills: {
       title: 'Compétences Techniques',
       subtitle: 'Technologies et outils que j\'utilise pour créer des applications modernes et évolutives',
