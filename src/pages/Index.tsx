@@ -4,6 +4,7 @@ import AuroraBackground from '@/components/AuroraBackground';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import LanguageTransition from '@/components/LanguageTransition';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 const AboutSection = lazy(() => import('@/components/AboutSection'));
 const SkillsSection = lazy(() => import('@/components/SkillsSection'));
