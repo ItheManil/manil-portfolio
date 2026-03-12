@@ -24,7 +24,6 @@ const Index = () => {
           <main>
             <HeroSection />
             <Suspense fallback={null}>
-              <StatsSection />
               <AboutSection />
               <SkillsSection />
               <EducationSection />
