@@ -31,6 +31,14 @@ export const translations = {
         { lang: 'Spanish', level: 'Intermediate' },
       ],
     },
+    stats: {
+      title: 'By the Numbers',
+      subtitle: 'A quick overview of my professional achievements and experience',
+      projects: 'Projects Completed',
+      clients: 'Happy Clients',
+      experience: 'Years Experience',
+      technologies: 'Technologies Mastered',
+    },
     skills: {
       title: 'Technical Skills',
       subtitle: 'Technologies and tools I work with to build modern, scalable applications',
@@ -150,6 +158,14 @@ export const translations = {
         { lang: 'Espagnol', level: 'Intermédiaire' },
       ],
     },
+    stats: {
+      title: 'En Chiffres',
+      subtitle: 'Un aperçu rapide de mes réalisations professionnelles et de mon expérience',
+      projects: 'Projets Complétés',
+      clients: 'Clients Satisfaits',
+      experience: 'Années d\'Expérience',
+      technologies: 'Technologies Maîtrisées',
+    },
     skills: {
       title: 'Compétences Techniques',
       subtitle: 'Technologies et outils que j\'utilise pour créer des applications modernes et évolutives',
@@ -268,6 +284,14 @@ export const translations = {
         { lang: 'الإنجليزية', level: 'طلاقة' },
         { lang: 'الإسبانية', level: 'متوسط' },
       ],
+    },
+    stats: {
+      title: 'بالأرقام',
+      subtitle: 'نظرة سريعة على إنجازاتي المهنية وخبرتي',
+      projects: 'المشاريع المنجزة',
+      clients: 'العملاء الراضون',
+      experience: 'سنوات الخبرة',
+      technologies: 'التقنيات المتقنة',
     },
     skills: {
       title: 'المهارات التقنية',
