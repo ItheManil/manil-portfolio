@@ -31,6 +31,14 @@ export const translations = {
         { lang: 'Spanish', level: 'Intermediate' },
       ],
     },
+    stats: {
+      title: 'By the Numbers',
+      subtitle: 'A quick overview of my professional achievements and experience',
+      projects: 'Projects Completed',
+      clients: 'Happy Clients',
+      experience: 'Years Experience',
+      technologies: 'Technologies Mastered',
+    },
     skills: {
       title: 'Technical Skills',
       subtitle: 'Technologies and tools I work with to build modern, scalable applications',
