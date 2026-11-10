@@ -1,12 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const FloatingWhatsApp = () => {
   const [hovered, setHovered] = useState(false);
+  const { t } = useLanguage();
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2">
       <AnimatePresence>
         {hovered && (
           <motion.div
@@ -16,7 +17,7 @@ const FloatingWhatsApp = () => {
             transition={{ duration: 0.2 }}
             className="px-3 py-1.5 rounded-lg bg-foreground text-background text-xs font-medium shadow-lg whitespace-nowrap"
           >
-            Chat on WhatsApp
+            {t.contact.whatsapp}
           </motion.div>
         )}
       </AnimatePresence>
@@ -32,8 +33,8 @@ const FloatingWhatsApp = () => {
         transition={{ type: 'spring', stiffness: 260, damping: 20, delay: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="relative w-14 h-14 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shadow-lg shadow-[#25D366]/30 hover:shadow-xl hover:shadow-[#25D366]/40 transition-shadow"
-        aria-label="WhatsApp"
+        className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shadow-lg shadow-[#25D366]/30 hover:shadow-xl hover:shadow-[#25D366]/40 transition-shadow"
+        aria-label={t.contact.whatsapp}
       >
         {/* Ping animation */}
         <span className="absolute inset-0 rounded-2xl bg-[#25D366] animate-ping opacity-20" />

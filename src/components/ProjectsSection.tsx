@@ -2,6 +2,14 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { motion } from 'framer-motion';
 import { techIconMap } from '@/lib/techIcons';
 import { ExternalLink, Github } from 'lucide-react';
+import shotAtmosphere from '@/assets/project-atmosphere.jpg';
+import shotMaclealger from '@/assets/project-maclealger.jpg';
+
+// Screenshots of the live client sites, keyed by their URL
+const projectShots: Record<string, string> = {
+  'https://atmosphere-dz.com/': shotAtmosphere,
+  'https://maclealger.lovable.app': shotMaclealger,
+};
 
 const easeOut: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } } };
@@ -70,35 +78,34 @@ const ProjectsSection = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} transition={{ staggerChildren: 0.1 }}>
           <motion.h2 variants={fadeUp} className="section-heading text-center mb-8 md:mb-12">{p.title}</motion.h2>
 
-          {/* Academic Projects */}
-          <motion.h3 variants={fadeUp} className="text-lg md:text-xl font-semibold text-foreground text-center mb-6">
-            {p.academicTitle}
-          </motion.h3>
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mb-12">
-            {p.items.map((proj, i) => (
-              <motion.div key={i} variants={i % 2 === 0 ? slideLeft : slideRight} className="glass-card-hover p-5 md:p-6 flex flex-col">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="category-pill">{proj.category}</span>
-                  <span className="text-xs text-muted-foreground">{proj.year}</span>
-                </div>
-                <h4 className="text-base md:text-lg font-semibold text-foreground mb-1.5">{proj.name}</h4>
-                <p className="text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{proj.desc}</p>
-                <div className="flex flex-wrap gap-2.5 md:gap-3">
-                  {proj.tech.map((tech, idx) => (
-                    <TechLogo key={tech} name={tech} index={idx} />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Professional Projects */}
+          {/* Professional Projects — shown first, they are the strongest proof of work */}
           <motion.h3 variants={fadeUp} className="text-lg md:text-xl font-semibold text-foreground text-center mb-6">
             {p.professionalTitle}
           </motion.h3>
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mb-12">
             {p.professional.map((proj, i) => (
-              <motion.div key={i} variants={i % 2 === 0 ? slideLeft : slideRight} className="glass-card-hover p-5 md:p-6 flex flex-col">
+              <motion.div key={i} variants={i % 2 === 0 ? slideLeft : slideRight} className="glass-card-hover overflow-hidden flex flex-col">
+                {projectShots[proj.siteUrl] && (
+                  <a
+                    href={proj.siteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block aspect-[16/10] overflow-hidden border-b border-border"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                  >
+                    <img
+                      src={projectShots[proj.siteUrl]}
+                      alt=""
+                      width={960}
+                      height={600}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </a>
+                )}
+                <div className="p-5 md:p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="category-pill">{proj.category}</span>
                   <span className="text-xs text-muted-foreground">{proj.year}</span>
@@ -129,6 +136,29 @@ const ProjectsSection = () => {
                     <Github className="w-4 h-4" />
                     {p.viewCode}
                   </a>
+                </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Academic Projects */}
+          <motion.h3 variants={fadeUp} className="text-lg md:text-xl font-semibold text-foreground text-center mb-6">
+            {p.academicTitle}
+          </motion.h3>
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+            {p.items.map((proj, i) => (
+              <motion.div key={i} variants={i % 2 === 0 ? slideLeft : slideRight} className="glass-card-hover p-5 md:p-6 flex flex-col">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="category-pill">{proj.category}</span>
+                  <span className="text-xs text-muted-foreground">{proj.year}</span>
+                </div>
+                <h4 className="text-base md:text-lg font-semibold text-foreground mb-1.5">{proj.name}</h4>
+                <p className="text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{proj.desc}</p>
+                <div className="flex flex-wrap gap-2.5 md:gap-3">
+                  {proj.tech.map((tech, idx) => (
+                    <TechLogo key={tech} name={tech} index={idx} />
+                  ))}
                 </div>
               </motion.div>
             ))}

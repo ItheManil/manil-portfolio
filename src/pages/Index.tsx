@@ -16,7 +16,8 @@ const ContactSection = lazy(() => import('@/components/ContactSection'));
 const Index = () => {
   return (
     <LanguageProvider>
-      <div className="relative min-h-screen">
+      {/* overflow-x-clip stops slide-in animations from widening the page on phones */}
+      <div className="relative min-h-screen overflow-x-clip">
         <AuroraBackground />
         <FloatingWhatsApp />
         <Navbar />

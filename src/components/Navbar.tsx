@@ -71,27 +71,34 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {/* Theme toggle */}
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           {/* Language switcher */}
-          <div className="flex items-center gap-1 rounded-lg border border-border p-1">
+          <div className="flex items-center gap-0.5 sm:gap-1 rounded-lg border border-border p-1" role="group" aria-label="Language">
             {langs.map((l) => (
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}
-                className={`flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded transition-all duration-200 ${
+                aria-pressed={lang === l.code}
+                className={`flex items-center gap-1 px-1.5 sm:px-2 py-0.5 text-xs font-medium rounded transition-all duration-200 ${
                   lang === l.code ? 'bg-primary text-primary-foreground scale-105' : 'text-muted-foreground hover:text-foreground hover:scale-110'
                 }`}
               >
-                <img src={l.flag} alt={l.label} className={`w-4 h-3 object-cover rounded-[2px] transition-all duration-200 ${lang === l.code ? 'ring-1 ring-primary-foreground/50' : 'opacity-70 group-hover:opacity-100'}`} />
+                {/* Flags are hidden on small phones to keep the bar from overflowing */}
+                <img src={l.flag} alt="" className={`hidden sm:block w-4 h-3 object-cover rounded-[2px] transition-all duration-200 ${lang === l.code ? 'ring-1 ring-primary-foreground/50' : 'opacity-70 group-hover:opacity-100'}`} />
                 {l.label}
               </button>
             ))}
           </div>
 
           {/* Mobile menu button */}
-          <button className="md:hidden p-2 text-muted-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button
+            className="md:hidden p-2 text-muted-foreground"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+          >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
